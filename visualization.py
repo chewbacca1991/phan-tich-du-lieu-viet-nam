@@ -7,5 +7,5 @@ class DataVisualizer:
     def plot(self):
         plt.figure(figsize=(10, 6))
         plt.plot(self.data)
-        plt.title('Biểu đồ Dữ Liệu')
+        plt.title('Data Visualization')
         plt.show()
