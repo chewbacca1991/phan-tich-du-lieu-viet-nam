@@ -16,8 +16,18 @@ class DataAnalyzer:
         """
         Creates an instance of DataAnalyzer from a CSV file.
         """
-        data = pd.read_csv(file_path)
-        return cls(data)
+        try:
+            data = pd.read_csv(file_path)
+            return cls(data)
+        except FileNotFoundError:
+            print(f"Error: The file {file_path} was not found.")
+            return None
+        except pd.errors.EmptyDataError:
+            print("Error: No data found in the file.")
+            return None
+        except pd.errors.ParserError:
+            print("Error: Could not parse the data.")
+            return None
 
     def analyze(self):
         """
