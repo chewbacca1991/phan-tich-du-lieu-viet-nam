@@ -5,5 +5,10 @@ class DataCollector:
         self.source = source
 
     def collect_data(self):
-        response = requests.get(self.source)
-        return response.json() if response.status_code == 200 else None
+        try:
+            response = requests.get(self.source)
+            response.raise_for_status()  # Raises an HTTPError for bad responses
+            return response.json()
+        except requests.RequestException as e:
+            print(f'An error occurred: {e}')
+            return None
