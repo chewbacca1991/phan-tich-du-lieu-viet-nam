@@ -28,6 +28,9 @@ class DataAnalyzer:
         except pd.errors.ParserError:
             print("Error: Could not parse the data.")
             return None
+        except Exception as e:
+            print(f"Error: An unexpected error occurred - {e}")
+            return None
 
     def analyze(self):
         """
