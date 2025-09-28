@@ -1,7 +1,7 @@
 import requests
 import logging
 
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.INFO)
 
 class DataCollector:
     def __init__(self, source):
