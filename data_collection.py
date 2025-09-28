@@ -15,3 +15,6 @@ class DataCollector:
         except requests.RequestException as e:
             logging.error(f'An error occurred: {e}')
             return None
+        except ValueError as e:
+            logging.error(f'JSON decode error: {e}')
+            return None
